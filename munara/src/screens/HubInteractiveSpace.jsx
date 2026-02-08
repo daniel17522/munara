@@ -323,7 +323,12 @@ export default function HubInteractiveSpace() {
                 width: '100%',
                 position: 'relative',
                 overflow: 'auto',
-                background: 'linear-gradient(135deg, #ffb6c1 0%, #ff9ec5 25%, #ff8fa8 50%, #ffb6c1 100%)'
+                background: 'linear-gradient(135deg, #ffb6c1 0%, #ff9ec5 25%, #ff8fa8 50%, #ffb6c1 100%)',
+                willChange: 'transform',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+                transform: 'translate3d(0, 0, 0)',
+                WebkitOverflowScrolling: 'touch'
             }}
         >
             {/* Wavy Background Layers */}
@@ -333,27 +338,39 @@ export default function HubInteractiveSpace() {
 
             {/* Floating Clouds */}
             <FloatingCloud size={120} x={5} y={10} delay={0} />
-            <FloatingCloud size={90} x={15} y={25} delay={2} />
             <FloatingCloud size={100} x={80} y={15} delay={1} />
-            <FloatingCloud size={80} x={85} y={35} delay={3} />
             <FloatingCloud size={110} x={40} y={8} delay={4} />
-            <FloatingCloud size={95} x={60} y={22} delay={1.5} />
+            {!isMobile && (
+                <>
+                    <FloatingCloud size={90} x={15} y={25} delay={2} />
+                    <FloatingCloud size={80} x={85} y={35} delay={3} />
+                    <FloatingCloud size={95} x={60} y={22} delay={1.5} />
+                </>
+            )}
 
 
             {/* Variety of Hearts */}
-            {/* Gradient Hearts */}
-            <ElegantHeart x={8} y={15} size={25} delay={0} />
-            <ElegantHeart x={92} y={20} size={30} delay={0.5} />
-            <ElegantHeart x={50} y={5} size={22} delay={2} />
+            {/* Gradient Hearts - Hidden on mobile for performance */}
+            {!isMobile && (
+                <>
+                    <ElegantHeart x={8} y={15} size={25} delay={0} />
+                    <ElegantHeart x={92} y={20} size={30} delay={0.5} />
+                    <ElegantHeart x={50} y={5} size={22} delay={2} />
+                </>
+            )}
 
             {/* Filled Solid Hearts */}
             <FilledHeart x={18} y={12} size={35} color="#ff3366" delay={0.3} rotate={-15} />
             <FilledHeart x={85} y={8} size={42} color="#ff4d7a" delay={1.2} rotate={10} />
-            <FilledHeart x={12} y={78} size={38} color="#ff5588" delay={2.1} rotate={-8} />
-            <FilledHeart x={88} y={82} size={33} color="#ff3366" delay={1.8} rotate={12} />
+            {!isMobile && (
+                <>
+                    <FilledHeart x={12} y={78} size={38} color="#ff5588" delay={2.1} rotate={-8} />
+                    <FilledHeart x={88} y={82} size={33} color="#ff3366" delay={1.8} rotate={12} />
+                </>
+            )}
 
-            {/* Outline Hearts */}
-            <OutlineHeart x={28} y={18} size={30} color="#ffffff" delay={0.6} rotate={5} />
+            {/* Outline Hearts - Reduced on mobile */}
+            {!isMobile && <OutlineHeart x={28} y={18} size={30} color="#ffffff" delay={0.6} rotate={5} />}
             <OutlineHeart x={72} y={25} size={35} color="#ffffff" delay={1.5} rotate={-10} />
             <OutlineHeart x={15} y={85} size={28} color="rgba(255, 255, 255, 0.9)" delay={2.3} rotate={8} />
             <OutlineHeart x={82} y={72} size={32} color="rgba(255, 255, 255, 0.95)" delay={1.1} rotate={-5} />
@@ -686,7 +703,10 @@ export default function HubInteractiveSpace() {
                                     justifyContent: 'center',
                                     gap: '12px',
                                     overflow: 'visible',
-                                    transition: 'all 0.2s ease'
+                                    transition: 'all 0.2s ease',
+                                    transform: 'translate3d(0, 0, 0)',
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden'
                                 }}
                             >
                                 {isCompleted && (
