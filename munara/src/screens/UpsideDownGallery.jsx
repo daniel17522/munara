@@ -255,8 +255,8 @@ export default function UpsideDownGallery() {
                 onClick={() => navigate('/hub')}
                 style={{
                     position: 'absolute',
-                    top: '5rem',
-                    left: '2rem',
+                    top: '1rem',
+                    left: '1rem',
                     background: 'rgba(50, 20, 70, 0.3)',
                     border: '2px solid rgba(255, 100, 100, 0.4)',
                     borderRadius: '50px',
