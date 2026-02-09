@@ -51,6 +51,18 @@ export default function MagicEightBall() {
         return () => window.removeEventListener('devicemotion', handleMotion)
     }, [previousPrediction])
 
+    // Set body background to prevent white line on mobile
+    useEffect(() => {
+        const originalBg = document.body.style.background
+        document.body.style.background = '#0a0a1a'
+        document.documentElement.style.background = '#0a0a1a'
+
+        return () => {
+            document.body.style.background = originalBg
+            document.documentElement.style.background = originalBg
+        }
+    }, [])
+
     const handleShake = () => {
         if (isShaking) return
 

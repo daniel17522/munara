@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { completeCard, CARDS } from '../utils/progress'
@@ -140,6 +140,18 @@ export default function PragueTravelScreen() {
             }, 3000)
         }, 5000)
     }
+
+    // Set body background to prevent white line on mobile
+    useEffect(() => {
+        const originalBg = document.body.style.background
+        document.body.style.background = '#ff6b8a'
+        document.documentElement.style.background = '#ff6b8a'
+
+        return () => {
+            document.body.style.background = originalBg
+            document.documentElement.style.background = originalBg
+        }
+    }, [])
 
     return (
         <div

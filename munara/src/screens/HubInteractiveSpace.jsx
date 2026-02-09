@@ -297,6 +297,17 @@ export default function HubInteractiveSpace() {
         }
     }, [isMobile])
 
+    // Set body background to prevent white line on mobile
+    useEffect(() => {
+        const originalBg = document.body.style.background
+        document.body.style.background = '#ffb6c1'
+        document.documentElement.style.background = '#ffb6c1'
+
+        return () => {
+            document.body.style.background = originalBg
+            document.documentElement.style.background = originalBg
+        }
+    }, [])
 
     useEffect(() => {
         const count = SYMBOLS.filter(s => isCardCompleted(s.id)).length

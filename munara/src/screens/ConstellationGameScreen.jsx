@@ -11,6 +11,18 @@ export default function ConstellationGameScreen() {
         completeCard(CARDS.CONSTELLATION)
     }, [])
 
+    // Set body background to prevent white line on mobile
+    useEffect(() => {
+        const originalBg = document.body.style.background
+        document.body.style.background = '#090A0F'
+        document.documentElement.style.background = '#090A0F'
+
+        return () => {
+            document.body.style.background = originalBg
+            document.documentElement.style.background = originalBg
+        }
+    }, [])
+
     return (
         <div
             style={{
