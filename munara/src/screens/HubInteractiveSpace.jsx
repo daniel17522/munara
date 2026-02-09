@@ -423,8 +423,8 @@ export default function HubInteractiveSpace() {
                 </AnimatePresence>
             </motion.div>
 
-            {/* Interactive Polaroid Photos */}
-            {[0, 1, 2, 3, 4].map((index) => {
+            {/* Interactive Polaroid Photos - Hidden on mobile */}
+            {!isMobile && [0, 1, 2, 3, 4].map((index) => {
                 const positions = isMobile ? [
                     { top: '12%', left: '2%', rotate: -8 },
                     { top: '12%', right: '2%', rotate: 6, left: 'auto' },
