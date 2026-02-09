@@ -11,6 +11,7 @@ export default function PuzzleLiliesScreen() {
     const [showSuccess, setShowSuccess] = useState(false)
     const [hintVisible, setHintVisible] = useState(false)
     const [selectedPiece, setSelectedPiece] = useState(null) // For touch support
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
 
     const GRID_SIZE = 3 // 3x3 puzzle
     const PIECE_SIZE = 120
@@ -36,6 +37,15 @@ export default function PuzzleLiliesScreen() {
             .sort((a, b) => a.sort - b.sort)
 
         setPieces(shuffled)
+    }, [])
+
+    // Handle window resize for responsive design
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
     }, [])
 
     const handleDragStart = (piece) => {
@@ -291,14 +301,14 @@ export default function PuzzleLiliesScreen() {
                 onClick={() => setHintVisible(!hintVisible)}
                 style={{
                     position: 'absolute',
-                    top: '20px',
-                    right: '20px',
+                    top: isMobile ? '10px' : '20px',
+                    right: isMobile ? '10px' : '20px',
                     background: 'white',
                     border: '3px solid #ff4d7a',
                     borderRadius: '50px',
-                    padding: '10px 20px',
+                    padding: isMobile ? '8px 16px' : '10px 20px',
                     fontFamily: "'Pacifico', cursive",
-                    fontSize: '1rem',
+                    fontSize: isMobile ? '0.85rem' : '1rem',
                     color: '#ff4d7a',
                     cursor: 'pointer',
                     boxShadow: '3px 3px 0px #ff4d7a',
