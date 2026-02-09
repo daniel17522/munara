@@ -322,7 +322,7 @@ export default function HubInteractiveSpace() {
                 minHeight: '100vh',
                 width: '100%',
                 position: 'relative',
-                overflow: 'auto',
+                overflow: isMobile ? 'auto' : 'hidden',
                 background: 'linear-gradient(135deg, #ffb6c1 0%, #ff9ec5 25%, #ff8fa8 50%, #ffb6c1 100%)',
                 willChange: 'transform',
                 backfaceVisibility: 'hidden',
