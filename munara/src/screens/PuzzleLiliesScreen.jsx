@@ -301,17 +301,17 @@ export default function PuzzleLiliesScreen() {
                 onClick={() => setHintVisible(!hintVisible)}
                 style={{
                     position: 'absolute',
-                    top: isMobile ? '120px' : '20px',
-                    right: isMobile ? '10px' : '20px',
+                    top: isMobile ? '240px' : '20px',
+                    right: isMobile ? '15px' : '20px',
                     background: 'white',
-                    border: '3px solid #ff4d7a',
+                    border: isMobile ? '2px solid #ff4d7a' : '3px solid #ff4d7a',
                     borderRadius: '50px',
-                    padding: isMobile ? '8px 16px' : '10px 20px',
+                    padding: isMobile ? '6px 12px' : '10px 20px',
                     fontFamily: "'Pacifico', cursive",
-                    fontSize: isMobile ? '0.85rem' : '1rem',
+                    fontSize: isMobile ? '0.75rem' : '1rem',
                     color: '#ff4d7a',
                     cursor: 'pointer',
-                    boxShadow: '3px 3px 0px #ff4d7a',
+                    boxShadow: isMobile ? '2px 2px 0px #ff4d7a' : '3px 3px 0px #ff4d7a',
                     zIndex: 10
                 }}
             >
