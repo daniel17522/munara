@@ -36,6 +36,7 @@ export default function UpsideDownGallery() {
     const [isEntering, setIsEntering] = useState(true)
     const [showSecret, setShowSecret] = useState(-1)
     const [flickerState, setFlickerState] = useState(true)
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
 
     // Load Stranger Things font
     useEffect(() => {
@@ -45,6 +46,15 @@ export default function UpsideDownGallery() {
         document.head.appendChild(link)
 
         return () => document.head.removeChild(link)
+    }, [])
+
+    // Handle window resize for responsive design
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
     }, [])
 
     useEffect(() => {
@@ -255,14 +265,14 @@ export default function UpsideDownGallery() {
                 onClick={() => navigate('/hub')}
                 style={{
                     position: 'absolute',
-                    top: '1rem',
-                    left: '1rem',
+                    top: isMobile ? '0.5rem' : '1rem',
+                    left: isMobile ? '0.5rem' : '1rem',
                     background: 'rgba(50, 20, 70, 0.3)',
                     border: '2px solid rgba(255, 100, 100, 0.4)',
                     borderRadius: '50px',
-                    padding: '10px 24px',
+                    padding: isMobile ? '8px 16px' : '10px 24px',
                     color: '#ff6464',
-                    fontSize: '1rem',
+                    fontSize: isMobile ? '0.85rem' : '1rem',
                     fontFamily: "'Pacifico', cursive",
                     cursor: 'pointer',
                     backdropFilter: 'blur(10px)',
