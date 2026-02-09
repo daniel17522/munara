@@ -278,6 +278,26 @@ export default function HubInteractiveSpace() {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
+    // Control body overflow to hide scrollbars on desktop
+    useEffect(() => {
+        if (!isMobile) {
+            // Hide scrollbars on desktop
+            document.body.style.overflow = 'hidden'
+            document.documentElement.style.overflow = 'hidden'
+        } else {
+            // Allow scrolling on mobile
+            document.body.style.overflow = 'auto'
+            document.documentElement.style.overflow = 'auto'
+        }
+
+        // Cleanup on unmount
+        return () => {
+            document.body.style.overflow = 'auto'
+            document.documentElement.style.overflow = 'auto'
+        }
+    }, [isMobile])
+
+
     useEffect(() => {
         const count = SYMBOLS.filter(s => isCardCompleted(s.id)).length
         setCompletedCount(count)
