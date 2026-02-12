@@ -388,10 +388,10 @@ export default function UpsideDownGallery() {
                                     height: '100%',
                                     objectFit: 'cover',
                                     filter: `
-                                        brightness(0.65)
-                                        contrast(1.3)
-                                        saturate(0.6)
-                                        sepia(0.2)
+                                        brightness(0.85)
+                                        contrast(1.2)
+                                        saturate(0.65)
+                                        sepia(0.15)
                                         hue-rotate(180deg)
                                     `
                                 }}
