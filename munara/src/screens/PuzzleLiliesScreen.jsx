@@ -301,7 +301,7 @@ export default function PuzzleLiliesScreen() {
                 onClick={() => setHintVisible(!hintVisible)}
                 style={{
                     position: 'absolute',
-                    top: isMobile ? '225px' : '20px',
+                    top: isMobile ? '205px' : '20px',
                     right: isMobile ? '15px' : '20px',
                     background: 'white',
                     border: isMobile ? '2px solid #ff4d7a' : '3px solid #ff4d7a',
