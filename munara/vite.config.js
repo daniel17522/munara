@@ -10,7 +10,7 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
         name: 'Маленькая история для Мунары',
-        short_name: 'Для Мунары',
+        short_name: 'Munara',
         description: 'Интерактивное приключение, созданное специально для тебя',
         theme_color: '#ffc9e5',
         background_color: '#fff5f9',
