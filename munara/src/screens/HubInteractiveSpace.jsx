@@ -13,7 +13,7 @@ const SYMBOLS = [
 ]
 
 const ROMANTIC_QUOTES = [
-    'Will you be my gift hahahaha? ✨',
+    'You are shining like the stars ✨',
     'In you, I\'ve found the new vision 💖',
     'Together is my favorite place to be 🌸'
 ]
