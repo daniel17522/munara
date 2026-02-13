@@ -11,7 +11,7 @@ export default function ValentineQuestionScreen() {
     const [showConfetti, setShowConfetti] = useState(false)
 
     const getQuestionText = () => {
-        if (noClickCount === 0) return "Will you be my\nValentine?"
+        if (noClickCount === 0) return "Munara\nWill you be\nmy\nValentine?"
         if (noClickCount === 1) return 'Точно нет?'
         if (noClickCount === 2) return 'Ты уверена?\nЯ старался…'
         return 'Ладно.\nНо мне всё равно хочется,\nчтобы ты это увидела 🌸'
